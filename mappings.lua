@@ -18,8 +18,18 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    
+    ["\\"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" },
+    ["-"] = { "<cmd>split<cr>", desc = "Horizontal Split" },
+    ["<C-w>"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
+    ["<Tab>"] = { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
+    ["<S-Tab>"] = { function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" },
+    ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" },
+    ["<leader>gi"] = { function() require("gitignore").generate() end, desc = ".gitignore generator" },
+    ["<leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
+    -- folds
+    ["<leader>-"] = { ":foldclose<cr>", desc = "Fold block" },
+    ["<leader>+"] = { ":foldopen<cr>", desc = "Expand block" },
   },
   t = {
     -- setting a mapping to false will disable it
