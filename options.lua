@@ -7,6 +7,8 @@ return {
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
+    showmode = false,  -- disable showing modes in cmd line
+    tabstop = 4, -- Number of spaces in tab
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
